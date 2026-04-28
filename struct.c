@@ -2,20 +2,18 @@
 
 #define TOTAL_ALUNOS 30
 
-// Definição da estrutura
 typedef struct {
     float nota1;
     float nota2;
     float media;
 } Aluno;
 
-// Protótipos das funções
 void lerNotas(Aluno alunos[], int n);
 void calcularMedias(Aluno alunos[], int n);
 float obterMediaTurma(Aluno alunos[], int n);
 void imprimirDestaques(Aluno alunos[], int n, float mediaTurma);
 
-int main() {
+int main(void) {
     Aluno alunos[TOTAL_ALUNOS];
     float mediaTurma;
 
@@ -34,7 +32,6 @@ int main() {
     return 0;
 }
 
-// Função para leitura dos dados
 void lerNotas(Aluno alunos[], int n) {
     for (int i = 0; i < n; i++) {
         printf("Aluno [%d] - Nota 1: ", i + 1);
@@ -44,14 +41,12 @@ void lerNotas(Aluno alunos[], int n) {
     }
 }
 
-// Função para calcular a média ponderada: (N1*2 + N2*3) / 5
 void calcularMedias(Aluno alunos[], int n) {
     for (int i = 0; i < n; i++) {
         alunos[i].media = (alunos[i].nota1 * 2 + alunos[i].nota2 * 3) / 5;
     }
 }
 
-// Função para calcular a média da turma
 float obterMediaTurma(Aluno alunos[], int n) {
     float soma = 0;
     for (int i = 0; i < n; i++) {
@@ -60,7 +55,6 @@ float obterMediaTurma(Aluno alunos[], int n) {
     return soma / n;
 }
 
-// Função para imprimir alunos acima da média da turma
 void imprimirDestaques(Aluno alunos[], int n, float mediaTurma) {
     printf("Alunos com media acima da media da turma:\n");
     printf("ID\tNota 1\tNota 2\tMedia Final\n");
